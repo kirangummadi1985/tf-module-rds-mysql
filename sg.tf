@@ -1,14 +1,14 @@
 resource "aws_security_group" "main" {
   name        = "allow_rds_mysql_${var.COMPONENT}_${var.ENV}"
   description = "allow_rds_mysql_${var.COMPONENT}_${var.ENV}"
-  vpc_id = data.terraform_remote_state.vpc.outputs.VPC_ID
+  vpc_id = var.VPC_ID
 
   ingress {
     description = "MYSQL"
     from_port   = 3306
     to_port     = 3306
     protocol    = "tcp"
-    cidr_blocks = [data.terraform_remote_state.vpc.outputs.VPC_CIDR]
+    cidr_blocks = [var.VPC_CIDR]
   }
 
   egress {
