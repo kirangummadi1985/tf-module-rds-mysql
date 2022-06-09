@@ -10,3 +10,5 @@ resource "aws_db_instance" "main" {
   parameter_group_name = aws_db_parameter_group.main.name
   skip_final_snapshot  = var.SKIP_FINAL_SNAPSHOT
 }
+
+
