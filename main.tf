@@ -9,6 +9,7 @@ resource "aws_db_instance" "main" {
   password             = jsondecode(data.aws_secretsmanager_secret_version.secret.secret_string)["RDS_PASSWORD"]
   parameter_group_name = aws_db_parameter_group.main.name
   skip_final_snapshot  = var.SKIP_FINAL_SNAPSHOT
+  db_subnet_group_name = aws_db_subnet_group.main.name
 }
 
 
