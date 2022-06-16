@@ -23,3 +23,4 @@ resource "aws_security_group" "main" {
     Name = "allow_rds_mysql_${var.COMPONENT}_${var.ENV}"
   }
 }
+
